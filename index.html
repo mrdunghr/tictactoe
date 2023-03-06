@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TIC TAC TOE</title>
+</head>
+<body>
+<input type="button" value="Change Value" onclick="ChangeValue()">
+<p id="carogame"></p>
+<script>
+    let b = document.getElementById('carogame');
+    let data = '';
+    let h = 1;
+    let array = [];
+
+    // add phần tử vào mảng 2 chiều
+    for (let i = 0; i < 5; i++){
+        array[i] = new Array('(.)','(.)','(.)','(.)','(.)');
+    }
+    // console.log(array)
+
+
+    // vòng lặp hiển thị mảng 2 chiều ra màn hình
+    for (let i = 0; i < 5; i++){
+        data = data + '<br>'
+        for (let j = 0; j < 5; j++){
+            data += array[i][j] + '&ensp;';
+        }
+    }
+    // console.log(data)
+    b.innerHTML = data;
+
+    //sự kiện click thay đổi tọa độ X O của mảng 2 chiều.
+    function ChangeValue(){
+        data = '';
+        let posX = parseInt(prompt("Nhập tọa độ X"));
+        let posY = parseInt(prompt("Nhập tọa độ Y"));
+        if (h % 2 == 0){
+            array[posX][posY] = 'x'
+        } else {
+            array[posX][posY] = 'o'
+        }
+        h++
+        for (let i = 0; i<5; i++){
+            data += '<br>';
+            for (let j = 0; j<5; j++){
+                data += array[i][j] + '&ensp;' + '&ensp;' + '&ensp;';
+            }
+        }
+        b.innerHTML = data;
+    }
+</script>
+</body>
+</html>
